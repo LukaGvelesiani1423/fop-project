@@ -37,7 +37,7 @@ This interpreter supports the following constructs:
 ## How to Use
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/SimpleInterpreter.git
+    git clone https://github.com/LukaGvelesiani1423/SimpleInterpreter.git
     cd SimpleInterpreter
     ```
 2. Compile the Java code:
