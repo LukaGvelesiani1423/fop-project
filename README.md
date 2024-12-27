@@ -4,7 +4,7 @@
 A simple interpreter for a minimal programming language subset. The project will support basic constructs like variable assignment, arithmetic operations, conditionals, and iterative control flow.
 
 ## Language Choice
-**Java**
+**Golang**
 
 ## Features
 - Support for variable assignment (`x = 5`)
