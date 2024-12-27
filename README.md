@@ -37,8 +37,8 @@ This interpreter supports the following constructs:
 ## How to Use
 1. Clone the repository:
     ```bash
-    git clone https://github.com/LukaGvelesiani1423/SimpleInterpreter.git
-    cd SimpleInterpreter
+    git clone https://github.com/LukaGvelesiani1423/fop-project.git
+    cd fop-project
     ```
 2. Compile the Java code:
     ```bash
