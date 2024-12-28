@@ -4,6 +4,8 @@ public class Algorithms {
         for (i=0; i<5;i++){
             System.out.println(i); 
         }
+
+        System.out.println("test");
             
     }
 }
