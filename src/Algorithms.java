@@ -9,7 +9,6 @@ public class Algorithms {
         System.out.println("But it only changes if you commmit");
         System.out.println("to push - press ctrl+shift+k");
         System.out.println("to commit - press ctrl+k");
-        System.out.println("test 2");
             
     }
 }
