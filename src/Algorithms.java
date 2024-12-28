@@ -5,10 +5,10 @@ public class Algorithms {
             System.out.println(i); 
         }
 
-        System.out.println("Update from Luka Aghlemashvili's branch");
-        System.out.println("Hello from my branch again.");
-
-        System.out.println("Hello from my branch again2.");
+        System.out.println("You can push and it saves your information to remote");
+        System.out.println("But it only changes if you commmit");
+        System.out.println("to push - press ctrl+shift+k");
+        System.out.println("to commit - press ctrl+k");
             
     }
 }
