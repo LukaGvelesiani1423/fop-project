@@ -1,6 +1,5 @@
 public class GolangInterpreter {
     public static void main(String[] args) {
-        System.out.println("this will be used for Golang interpreter");
-
+        System.out.println("used for golang interpreter");
     }
 }
