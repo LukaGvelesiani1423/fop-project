@@ -10,6 +10,7 @@ public class Algorithms {
         System.out.println("to push - press ctrl+shift+k");
         System.out.println("to commit - press ctrl+k");
         System.out.println("From local");
+        System.out.println("Hello world!");
             
     }
 }
