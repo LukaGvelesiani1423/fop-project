@@ -1,21 +1,124 @@
 package parser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Parser {
-    //Purpose: Parser is the syntax checker and AST builder.
-    //Code: It will need code to:
-    //Consume the list of Token objects from the Lexer.
-    //Implement methods to parse statements and call the
-    // appropriate methods to parse different types of statements,
-    // such as variable assignments, while loops, if statements,
-    // print statements, and blocks of code.
-    //Implement methods to parse expressions, taking into account
-    // operator precedence using recursive methods such as
-    // parseComparison, parseTerm, and parseFactor.
-    //Handle parenthesis in expressions.
-    //Create ASTNode objects to represent the different
-    // operations and statements in the code, including the
-    // token, type and child nodes.
-    //Return the root node of the generated AST.
-    //Use the ErrorReporter class to report syntax errors
-    // found during parsing if there are any syntax errors.
+    private List<String> tokens;
+    private int current;
+
+    public Parser(List<String> tokens) {
+        this.tokens = tokens;
+        this.current = 0;
+    }
+
+    public int getCurrentIndex() {
+        return current;
+    }
+
+    private String consume() {
+        return tokens.get(current++);
+    }
+
+    public Node parse() {
+        String token = consume();
+        switch (token) {
+            case "let":
+                return parseAssignment();
+            case "if":
+                return parseIf();
+            case "while":
+                return parseWhile();
+            default:
+                throw new RuntimeException("Unknown statement: " + token);
+        }
+    }
+
+    private Node parseAssignment() {
+        String variable = consume();
+        consume(); // skip '='
+        Node expression = parseExpression();
+        consume(); // skip ';'
+        return new AssignmentNode(variable, expression);
+    }
+
+    private Node parseIf() {
+        consume(); // skip '('
+        Node condition = parseExpression();
+        consume(); // skip ')'
+        Node thenBranch = parseBlock();
+        Node elseBranch = null;
+        if ("else".equals(consume())) {
+            elseBranch = parseBlock();
+        }
+        return new IfNode(condition, thenBranch, elseBranch);
+    }
+
+    private Node parseWhile() {
+        consume(); // skip '('
+        Node condition = parseExpression();
+        consume(); // skip ')'
+        Node body = parseBlock();
+        return new WhileNode(condition, body);
+    }
+
+    private Node parseBlock() {
+        consume(); // skip '{'
+        List<Node> statements = new ArrayList<>();
+        while (!"}".equals(consume())) {
+            statements.add(parse());
+        }
+        return new BlockNode(statements);
+    }
+
+    private Node parseExpression() {
+        return parseAddSub();
+    }
+
+    private Node parseAddSub() {
+        Node left = parseMulDiv();
+        while (true) {
+            String token = consume();
+            if ("+".equals(token)) {
+                left = new BinaryOpNode(left, parseMulDiv(), token);
+            } else if ("-".equals(token)) {
+                left = new BinaryOpNode(left, parseMulDiv(), token);
+            } else {
+                current--;
+                return left;
+            }
+        }
+    }
+
+    private Node parseMulDiv() {
+        Node left = parsePrimary();
+        while (true) {
+            String token = consume();
+            if ("*".equals(token)) {
+                left = new BinaryOpNode(left, parsePrimary(), token);
+            } else if ("/".equals(token)) {
+                left = new BinaryOpNode(left, parsePrimary(), token);
+            } else {
+                current--;
+                return left;
+            }
+        }
+    }
+
+    private Node parsePrimary() {
+        String token = consume();
+        if ("(".equals(token)) {
+            Node expr = parseExpression();
+            consume(); // skip ')'
+            return expr;
+        } else {
+            try {
+                return new NumberNode(Integer.parseInt(token));
+            } catch (NumberFormatException e) {
+                return new VariableNode(token);
+            }
+        }
+    }
 }
+
+
