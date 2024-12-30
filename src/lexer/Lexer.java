@@ -1,6 +1,23 @@
 package lexer;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 public class Lexer {
+    public static List<String> tokenize(String code) {
+        List<String> tokens = new ArrayList<>();
+        StringTokenizer tokenizer = new StringTokenizer(code, " \t\n\r\f()+-*/%={},;", true);
+        while (tokenizer.hasMoreTokens()) {
+            String token = tokenizer.nextToken().trim();
+            if (!token.isEmpty()) {
+                tokens.add(token);
+            }
+        }
+        return tokens;
+
+    }
+
     //Purpose: Lexer is the tokenizer, it breaks down the text into meaningful pieces.
     //Code: It will need code to:
     //Read the input string of the program character by character,
