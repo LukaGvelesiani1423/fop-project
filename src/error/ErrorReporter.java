@@ -115,7 +115,7 @@ import java.util.Scanner;
             while (!(line = scanner.nextLine()).equals("END")) {
                 program.append(line).append("\n");
             }
-            System.out.println(program.toString());
+
 
             Interpreter interpreter = new Interpreter();
             interpreter.interpret(program.toString());
