@@ -1,14 +1,71 @@
 package lexer;
 
+import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 public class Token {
+    private final TokenType type;
+    private final String value;
+    private final int line;
+    private final int column;
 
-    //Purpose: Token defines the vocabulary of a language (golang).
-    //
-    //Code: It will need code to:
-    //Define an enum to represent all possible tokens (e.g., INTEGER, PLUS, IF, IDENTIFIER).
-    //Create class members such as the TokenType, value of the token,
-    //and the line and column where the token appeared in the source file.
-    //Create constructors to initialize values of token class members.
-    //Implement a toString method for debugging purposes.
+    // Constructor to initialize token values
+    public Token(TokenType type, String value, int line, int column) {
+        this.type = type;
+        this.value = value;
+        this.line = line;
+        this.column = column;
+    } // Getters for token properties
 
+    public TokenType getType() {
+        return type;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public int getLine() {
+        return line;
+    }
+
+    public int getColumn() {
+        return column;
+    } // toString method for debugging
+
+    @Override
+    public String toString() {
+        return String.format("Token[type=%s, value='%s', line=%d, column=%d]", type, value, line, column);
+    }
+
+
+    public enum TokenType {
+        INTEGER,
+        PLUS,
+        MINUS,
+        MULTIPLY,
+        DIVIDE,
+        MODULUS,
+        IF,
+        ELSE,
+        WHILE,
+        IDENTIFIER,
+        ASSIGN,
+        EQ,
+        NEQ,
+        LT,
+        GT,
+        LTE,
+        GTE,
+        LPAREN,
+        RPAREN,
+        LBRACE,
+        RBRACE,
+        SEMICOLON,
+        EOF
+    }
 }
+
+
