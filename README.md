@@ -5,9 +5,9 @@ A basic interpreter for a simple imperative programming language. This interpret
 ## Team Members and Roles
 
 - **Luka Aghlemashvili:** Editor, who Commits and unites everything.
-- **Giorgi Jimshelishvili:** [Teammate's Role]
-- **Tamar Matitashvili:** [Teammate's Role]
-- **Luka Gveseliani:** [Another Teammate's Role]
+- **Giorgi Jimshelishvili:** Worked on utils, SimpleInterpreter.
+- **Tamar Matitashvili:** Worked on errors, Interpreter and algorithms.
+- **Luka Gveseliani:** Worked on parser, lexer.
 
 ## Instructions for Setting Up and Running the Project
 
