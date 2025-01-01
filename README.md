@@ -1,55 +1,73 @@
-# fop-project
+# Simple Interpreter
 
-## Description
-A simple interpreter for a minimal programming language subset. The project will support basic constructs like variable assignment, arithmetic operations, conditionals, and iterative control flow.
+A basic interpreter for a simple imperative programming language. This interpreter supports variable declarations, assignments, arithmetic operations, conditional statements (`if`), looping (`while`), and a `break` statement.
 
-## Language Choice
-**Golang**
+## Team Members and Roles
 
-## Features
-- Support for variable assignment (`x = 5`)
-- Arithmetic operations (`+`, `-`, `*`, `/`, `%`)
-- Conditional statements (`if`, `else`)
-- Loops (`while`)
-- Basic input/output (print statement)
+- **Luka Aghlemashvili:** Editor, who Commits and unites everything.
+- **Giorgi Jimshelishvili:** [Teammate's Role]
+- **Tamar Matitashvili:** [Teammate's Role]
+- **Luka Gveseliani:** [Another Teammate's Role]
 
-## Algorithms Implemented
-Here are a few algorithms we will implement to test the interpreter:
-1. Sum of First N Numbers
-2. Factorial of N
-3. GCD of Two Numbers
-4. Reverse a Number
-5. Check if a Number is Prime
-6. Check if a Number is Palindrome
-7. Find the Largest Digit in a Number
-8. Sum of Digits
-9. Multiplication Table
-10. Nth Fibonacci Number
+## Instructions for Setting Up and Running the Project
 
-## Language Subset Supported by Interpreter
-This interpreter supports the following constructs:
-- **Variables**: Assignment of values to variables (e.g., `x = 5`).
-- **Arithmetic Operations**: Supports basic operations like addition, subtraction, multiplication, division, and modulus.
-- **Conditionals**: `if` and `else` statements for conditional execution.
-- **Loops**: `while` loops for repeating operations.
-- **Print Statements**: Print output to the console.
+1. **Prerequisites:**
+   -   Ensure you have Java Development Kit (JDK) installed on your system. You can download it from [Oracle's website](https://www.oracle.com/java/technologies/javase-downloads.html) or use an open-source distribution like [OpenJDK](https://openjdk.org/).
 
-## How to Use
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/LukaGvelesiani1423/fop-project.git
-    cd fop-project
-    ```
-2. Compile the Java code:
-    ```bash
-    javac src/*.java
-    ```
-3. Run the interpreter with a sample program (e.g., `sum_of_first_n_numbers.txt`):
-    ```bash
-    java Interpreter sum_of_first_n_numbers.txt
-    ```
+2. **Compilation:**
+   -   Save all the `.java` files in the same directory.
+   -   Open your terminal or command prompt and navigate to that directory.
+   -   Compile the Java files using the `javac` command:
+       ```bash
+       javac *.java
+       ```
+       This will generate `.class` files for each `.java` file.
 
-## Sample Program
+3. **Running the Interpreter:**
+   -   After successful compilation, run the `SimpleInterpreter` class using the `java` command:
+       ```bash
+       java SimpleInterpreter
+       ```
+   -   The interpreter will execute predefined code snippets and print their output to the console.
 
-Example of a program that sums the first 10 numbers:
+## Features and Modules
 
+### 1. Abstract Syntax Tree (AST) Nodes
+
+-   **`AssignmentNode.java`:** Represents an assignment operation (e.g., `variable = value`).
+-   **`BinaryOpNode.java`:** Represents a binary operation (e.g., `left + right`).
+-   **`BreakNode.java`:** Represents a `break` statement.
+-   **`IfNode.java`:** Represents an `if` conditional statement.
+-   **`Node.java`:** Abstract base class for all AST nodes.
+-   **`NumberNode.java`:** Represents a numeric literal.
+-   **`PrintNode.java`:** Represents a `print` statement.
+-   **`VarDeclarationNode.java`:** Represents a variable declaration (e.g., `var x = 10`).
+-   **`VariableNode.java`:** Represents a variable identifier.
+-   **`WhileNode.java`:** Represents a `while` loop.
+
+### 2. Interpreter
+
+-   **`Interpreter.java`:** Executes the AST. It maintains a symbol table to store variable values and provides methods to `execute` AST nodes and `evaluate` expressions.
+
+### 3. Lexer
+
+-   **`Lexer.java`:** Tokenizes the input code string. It reads the input character by character and groups them into meaningful tokens like numbers, identifiers, operators, and keywords.
+
+### 4. Parser
+
+-   **`Parser.java`:** Builds the AST from the stream of tokens produced by the lexer. It follows the grammar of the simple language to create a hierarchical representation of the code.
+
+### 5. Main Application
+
+-   **`SimpleInterpreter.java`:** Contains the `main` method to demonstrate the interpreter. It includes example code snippets that are parsed and executed.
+
+### 6. Token and Token Types
+
+-   **`Token.java`:** Represents a single token with its type and value.
+-   **`TokenType.java`:** Enumerates all possible types of tokens in the language.
+
+### 7. Exceptions
+
+-   **`BreakException.java`:** A custom exception used to handle `break` statements within loops.
+
+### 8
