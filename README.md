@@ -7,7 +7,7 @@ A basic interpreter for a simple imperative programming language. This interpret
 - **Luka Aghlemashvili:** Editor, who Commits and unites everything.
 - **Giorgi Jimshelishvili:** Worked on utils, SimpleInterpreter.
 - **Tamar Matitashvili:** Worked on errors, Interpreter and algorithms.
-- **Luka Gveseliani:** Worked on parser, lexer.
+- **Luka Gveseliani:** Worked on Parser, Lexer and Tokens.
 
 ## Instructions for Setting Up and Running the Project
 
